@@ -132,3 +132,106 @@ Example 4:
 Enter a number and a measure of length: 1 miles
 1.0 mile is 1609.35 meters
 ```
+
+# Stage 4/5
+
+## Description
+Your program is now pretty helpful when it comes to converting length units. However, there's still room for improvement: let's make the program able to convert not just to meters but to any units of measurement.
+
+Speaking of "any units of measurement"... What if you are cooking and the recipe uses units of weight that are unfamiliar to you? Let's add more units of measurement to our converter now!
+
+In this stage, your program should be able to convert values in any supported units of length or weight to any other appropriate units. The user should input the number, the source unit of measurement, a transition word (for example, "in" or "to", but it can be any random word), and finally, the target unit. This scheme looks like this: x kg to mg, y pound in kg.
+
+Your program should be able to work with the following additional units:
+
+- Grams: the user can input "g", "gram", or "grams".
+
+- Kilograms: the user can input "kg", "kilogram", or "kilograms".
+
+- Milligrams: the user can input "mg", "milligram", or "milligrams".
+
+- Pounds: the user can input "lb", "pound", or "pounds".
+
+- Ounces: the user can input "oz", "ounce", or "ounces".
+
+Hard-coding all these conversion rates is possible but not very efficient. A smarter way would be to convert the input value to one intermediate "hub" unit and only then convert that intermediate value to the target value. The intermediate units could be meters for length and grams for weight. To convert weight units to grams, use the following rates:
+
+- One gram equals 1 gram.
+
+- One kilogram equals 1000 grams.
+
+- One milligram equals 0.001 grams.
+
+- One pound equals 453.592 grams.
+
+- One ounce equals 28.3495 grams.
+
+- For your convenience, use a break line after each unit conversion.
+
+In this stage, your program should also be able to handle errors. If the user attempts to perform an impossible conversion, for example, meters to kilograms, the program should output an appropriate error message: Conversion from meters to kilograms is impossible. If the program cannot recognize one of the units or both, output a message Conversion from ??? to kilograms is impossible where ??? stands for the unknown unit.
+
+Finally, since we have all these new units, let's make our program run until the user decides to exit the converter.
+
+## Objectives
+
+1. Your program should be able to convert values in any units of length or weight to any other appropriate units.
+
+2. The user input should be case insensitive.
+
+3. The output should contain the full names of target units.
+
+4. f the value is 1.0, the name of the unit must be singular, otherwise, plural, for example, "1.0 kilogram" but "1.1 kilograms".
+
+5. After each unit conversion, use a break line.
+
+6. Your program should be able to handle input errors. In the error message, both measurement types should be written in plural, not singular.
+
+7. The program should keep processing user input until the user enters exit.
+
+## Examples
+Example 1:
+```
+Enter what you want to convert (or exit): 1 kg to ounces
+1.0 kilogram is 35.27399072294044 ounces
+
+Enter what you want to convert (or exit): 2 meters in yards
+2.0 meters is 2.1872265966754156 yards
+
+Enter what you want to convert (or exit): 1 pound in kg
+1.0 pound is 0.453592 kilograms
+
+Enter what you want to convert (or exit): exit
+```
+Example 2:
+```
+Enter what you want to convert (or exit): 1 oz to g
+1.0 ounce is 28.3495 grams
+
+Enter what you want to convert (or exit): 100 cm in meters
+100.0 centimeters is 1.0 meter
+
+Enter what you want to convert (or exit): 23.34 feet to in
+23.34 feet is 280.08 inches
+
+Enter what you want to convert (or exit): exit
+```
+Example 3:
+```
+Enter what you want to convert (or exit): 1 kn to feet
+Conversion from ??? to feet is impossible
+
+Enter what you want to convert (or exit): 3 grams to meters
+Conversion from grams to meters is impossible
+
+Enter what you want to convert (or exit): exit
+```
+Example 4:
+```
+Enter what you want to convert (or exit): 1 PouNd to feet
+Conversion from pounds to feet is impossible
+
+Enter what you want to convert (or exit): 100 CM in KM
+100 centimeters is 0,001 kilometers
+
+Enter what you want to convert (or exit): exit
+```
