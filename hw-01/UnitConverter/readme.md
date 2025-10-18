@@ -59,3 +59,76 @@ Example 3:
 Enter a number and a measure: 5 miles
 Wrong input
 ```
+
+# Stage 3/5
+
+## Description
+There are many different units of length: feet, inches, yards, centimeters, and others. In this stage, the program should convert these common units of length to meters.
+
+The user should input a number and a unit of measurement, for example, 2 km or 2 kilometers. Note that the units of measurement should be case insensitive, so "Meters", "METERS", and "mEtErS" should work just as fine as "meters".
+
+Your program should support the following units:
+
+- Meters: the user can input "m", "meter", or "meters".
+
+- Kilometers: the user can input "km", "kilometer", or "kilometers".
+
+- Centimeters: the user can input "cm", "centimeter", or "centimeters".
+
+- Millimeters: the user can input "mm", "millimeter", or "millimeters".
+
+- Miles: the user can input "mi", "mile", or "miles".
+
+- Yards: the user can input "yd", "yard", or "yards".
+
+- Feet: the user can input "ft", "foot", or "feet".
+
+- Inches: the user can input "in", "inch", or "inches".
+
+For these units, use the following conversion rates:
+
+- One meter equals 1 meter.
+
+- One kilometer equals 1000 meters.
+
+- One centimeter equals 0.01 meters.
+
+- One millimeter equals 0.001 meters.
+
+- One mile equals 1609.35 meters.
+
+- One yard equals 0.9144 meters.
+
+- One foot equals 0.3048 meters.
+
+- One inch equals 0.0254 meters.
+  
+The user can enter the wrong unit of measure. In this case, your program should print: Wrong input. Unknown unit $inputUnit.
+
+## Objectives
+Your program should be able to convert all the supported units to meters.
+The output should contain the full names of the units.
+If the value is 1.0, the name of the unit must be singular, otherwise, plural, for example, "1.0 meter" but "1.1 meters".
+The program should ask the user for input only once, not infinitely.
+
+## Examples
+Example 1:
+```
+Enter a number and a measure of length: 1 m
+1.0 meter is 1.0 meter
+```
+Example 2:
+```
+Enter a number and a measure of length: 1000 millimeters
+1000.0 millimeters is 1.0 meter
+```
+Example 3:
+```
+Enter a number and a measure of length: 12.9 feet
+12.9 feet is 3.9319200000000003 meters
+```
+Example 4:
+```
+Enter a number and a measure of length: 1 miles
+1.0 mile is 1609.35 meters
+```
