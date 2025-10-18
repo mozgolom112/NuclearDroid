@@ -2,7 +2,8 @@ package academy
 
 enum class UnitCategory {
     LENGTH,
-    MASS
+    MASS,
+    TEMPERATURE,
 }
 
 enum class Unit(
@@ -27,7 +28,12 @@ enum class Unit(
     Kilograms(listOf("kg", "kilogram", "kilograms"), 1.0, singularName = "kilogram", pluralName = "kilograms", UnitCategory.MASS),
     Milligrams(listOf("mg", "milligram", "milligrams"), 0.000001, singularName = "milligram", pluralName = "milligrams", UnitCategory.MASS),
     Pounds(listOf("lb", "pound", "pounds"), 0.45359237, singularName = "pound", pluralName = "pounds", UnitCategory.MASS),
-    Ounces(listOf("oz", "ounce", "ounces"), 0.02835, singularName = "ounce", pluralName = "ounces", UnitCategory.MASS);
+    Ounces(listOf("oz", "ounce", "ounces"), 0.02835, singularName = "ounce", pluralName = "ounces", UnitCategory.MASS),
+
+    // TEMPERATURE has special formula for converting each other
+    Celsius(listOf("c", "dc", "degree celsius", "degrees celsius", "celsius"), 1.0, "degree Celsius", "degrees Celsius", UnitCategory.TEMPERATURE),
+    Fahrenheit(listOf("f", "df", "degree fahrenheit", "degrees fahrenheit", "fahrenheit"), 1.0, "degree Fahrenheit", "degrees Fahrenheit", UnitCategory.TEMPERATURE),
+    Kelvin(listOf("k", "kelvin", "kelvins"), 1.0, "kelvin", "kelvins", UnitCategory.TEMPERATURE);
 
     companion object {
         fun fromInput(input: String): Unit? {

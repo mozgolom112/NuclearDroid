@@ -235,3 +235,109 @@ Enter what you want to convert (or exit): 100 CM in KM
 
 Enter what you want to convert (or exit): exit
 ```
+
+# Stage 5/5
+
+## Description
+
+Our converter is really functional now, but there's still one thing missing: it can't work with temperature units. Let's extend the program by adding three units of temperature.
+
+The main units of temperature used today are degrees Celsius (C), degrees Fahrenheit (F), and kelvins (K). The program should allow the following notations:
+
+- For degrees Celsius, the user can input "degree Celsius", "degrees Celsius", "celsius", "dc", or "c".
+
+- For degrees Fahrenheit, the user can input "degree Fahrenheit", "degrees Fahrenheit", "fahrenheit", "df", or "f".
+
+- For kelvins, the user can input "kelvin", "kelvins", or "k".
+
+Note that converting units of temperature is different from working with length or weight. The problem is that 0 kelvin is not equal to 0 degrees Celsius or 0 degrees Fahrenheit, and neither is 0 degrees Celsius equal to 0 degrees Fahrenheit. Negative values are also possible, and you should use the appropriate singular or plural form depending on the values you're dealing with. Therefore, our conversion process will differ.
+
+Let's consider the formulae for converting one unit of temperature to another.
+
+
+![img.png](img.png)
+
+Try to rewrite your program using enums. The problem with representing measurement units as strings is that strings may take longer to process, especially since each unit has at least three different accepted string notations (such as “m”, “meter”, and “meters”).
+If you represent each unit by a special enum value, your code becomes cleaner and more readable. Since comparing enum values is much faster than comparing strings, your code is also processed faster.
+
+We want to make our users' lives easier, so, ensure to handle all edge cases. For example, if the user wants to convert weight or length from one unit to another and inputs a negative amount, print Weight shouldn't be negative or Length shouldn't be negative, respectively.
+
+If a query is invalid or malformed, we should also handle this. Try to parse the following parts:
+```
+<number> +
+<(unit name) or (degree + unit name) or (degrees + unit name)> +
+<random word like "to" or "in"> +
+<(unit name) or (degree + unit name) or (degrees + unit name)>
+```
+If there is an error, output Parse error.
+
+## Objectives
+1. Rewrite your program using enums.
+
+2. Your program should be able to convert values from any unit of length, weight, or temperature to any other appropriate unit.
+
+3. The user input remains case-insensitive.
+
+4. Your program should be able to handle all the possible edge cases. In the error message, both measurement types should be written in the plural.
+
+5. After each unit conversion, use a break line.
+
+6. The program should keep processing user input until they enter exit.
+
+## Examples
+Example 1:
+```
+Enter what you want to convert (or exit): 1 degree Celsius to kelvins
+1.0 degree Celsius is 274.15 kelvins
+
+Enter what you want to convert (or exit): -272.15 dc to K
+-272.15 degrees Celsius is 1.0 kelvin
+
+Enter what you want to convert (or exit): 1 kn to feet
+Conversion from ??? to feet is impossible
+
+Enter what you want to convert (or exit): 1 km to feet
+1.0 kilometer is 3280.839895013123 feet
+
+Enter what you want to convert (or exit): 3 pount to ounces
+Conversion from ??? to ounces is impossible
+
+Enter what you want to convert (or exit): 3 pound to ounces
+3.0 pounds is 47.99999999999999 ounces
+
+Enter what you want to convert (or exit): 3 kelvins to grams
+Conversion from kelvins to grams is impossible
+
+Enter what you want to convert (or exit): exit
+```
+Example 2:
+```
+Enter what you want to convert (or exit): 1 F in K
+1.0 degree Fahrenheit is 255.92777777777778 kelvins
+
+Enter what you want to convert (or exit): 1 K in F
+1.0 kelvin is -457.87 degrees Fahrenheit
+
+Enter what you want to convert (or exit): 1 C in K
+1.0 degree Celsius is 274.15 kelvins
+
+Enter what you want to convert (or exit): 1 K in C
+1.0 kelvin is -272.15 degrees Celsius
+
+Enter what you want to convert (or exit): 1 F in C
+1.0 degree Fahrenheit is -17.22222222222222 degrees Celsius
+
+Enter what you want to convert (or exit): 1 C in F
+1.0 degree Celsius is 33.8 degrees Fahrenheit
+
+Enter what you want to convert (or exit): one boa in parrots
+Parse error
+
+Enter what you want to convert (or exit): please convert distance to the Moon to steps
+Parse error
+
+Enter what you want to convert (or exit): many things to improve!
+Parse error
+
+Enter what you want to convert (or exit): exit
+```
