@@ -1,9 +1,33 @@
 package academy
 
 fun main() {
-    println("145 centimeters is 1.45 meters")
-    println("2 miles is 3.2187 kilometers")
-    println("5.5 inches is 139.7 millimeters")
-    println("12 degrees Celsius is 53.6 degrees Fahrenheit")
-    println("3 pounds is 1.360776 kilograms")
+    print("Enter a number and a measure: ")
+    ConvertorInput(readln()).processCommand()
+}
+
+private class ConvertorInput(arg: String?) {
+    private val input = arg ?: ""
+    val count = input.split(" ")[0].toIntOrNull()
+    val measuringUnit = input.split(" ").getOrElse(1) { "" }
+    fun processCommand() {
+        if (count == null) {
+            showInvalidInputMessage()
+            return
+        }
+        when (measuringUnit.lowercase()) {
+            "km", "kilometer", "kilometers" -> convertKmToMeters(count)
+            else -> showInvalidInputMessage()
+        }
+    }
+
+    private fun showInvalidInputMessage() {
+        println("Invalid input")
+    }
+}
+
+private fun convertKmToMeters(kilometers: Int) {
+    val meters = kilometers * 1000
+    val kilometerUnitWord = if (kilometers == 1) "kilometer" else "kilometers"
+
+    println("$kilometers $kilometerUnitWord is $meters meters")
 }
